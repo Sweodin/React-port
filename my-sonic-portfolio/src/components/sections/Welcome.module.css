@@ -1,0 +1,49 @@
+.card {
+  @apply flex flex-col gap-6 relative z-10 select-none bg-white/90 rounded-[20px] border-4 border-[#ffd700];
+  max-width: min(1200px, 90%);
+  min-height: clamp(40vh, 50vh, 60vh);
+  margin: clamp(80px, 10vh, 120px) auto 0;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.card::before {
+  content: "";
+  @apply absolute -top-1 -left-1 -right-1 -bottom-1 -z-10 rounded-[22px];
+  background: linear-gradient(45deg, #ffd700, #ff6b6b, #4fb3ff);
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* Welcome content styling */
+.welcomeContent h1 {
+  @apply text-center uppercase mb-4 text-[#0261d1];
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-shadow: 3px 3px 0 #ffd700, 6px 6px 0 rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+}
+
+.welcomeContent .subtitle {
+  @apply text-center text-gray-800 font-medium mb-4;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.welcomeText {
+  @apply text-center mx-auto;
+  max-width: 800px;
+}
+
+.welcomeText p {
+  @apply text-gray-700 mb-8 leading-relaxed;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+}
+
+/* Animations */
+@keyframes borderGlow {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}

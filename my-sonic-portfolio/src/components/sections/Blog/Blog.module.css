@@ -1,0 +1,254 @@
+/* src/components/sections/Blog/blog.module.css */
+.blogSection {
+  @apply relative py-16 px-4 overflow-hidden;
+}
+
+.blogContainer {
+  @apply relative z-20 bg-white/10 p-10 rounded-[20px] border-4 border-[#ffd700] backdrop-blur-md mx-auto;
+  max-width: min(1200px, 90%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.blogContainer h2 {
+  @apply text-center mb-12 relative inline-block font-bold pb-4;
+  font-size: clamp(2rem, 5vw, 3rem);
+  background: linear-gradient(45deg, #ffffff, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  width: 100%;
+}
+
+.blogContainer h2::after {
+  @apply content-[''] absolute left-1/2 bottom-0 h-1 bg-[#ffd700];
+  width: 100px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.blogGrid {
+  @apply grid gap-8 mb-12;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.blogCard {
+  @apply bg-white/5 rounded-xl overflow-hidden backdrop-blur-sm border-2 border-transparent transition-all duration-300;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blogCard:hover {
+  @apply transform -translate-y-2 border-[#ffd700];
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.cardImageContainer {
+  @apply relative h-48 overflow-hidden;
+}
+
+.cardImage {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.blogCard:hover .cardImage {
+  @apply transform scale-110;
+}
+
+.category {
+  @apply absolute top-4 right-4 bg-[#0261d1] text-white text-xs py-1 px-3 rounded-full;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cardContent {
+  @apply p-6 text-white;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.date {
+  @apply text-sm text-gray-300 mb-2 block;
+}
+
+.cardContent h3 {
+  @apply text-xl font-bold mb-3 text-[#ffd700];
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cardContent p {
+  @apply text-sm mb-4 text-gray-200;
+  line-height: 1.6;
+}
+
+.readMoreButton {
+  @apply inline-flex items-center gap-2 text-[#ffd700] font-semibold text-sm transition-all duration-300;
+  margin-top: auto;
+}
+
+.readMoreButton:hover {
+  @apply text-white;
+}
+
+.readMoreButton svg {
+  @apply transition-transform duration-300;
+}
+
+.readMoreButton:hover svg {
+  @apply transform translate-x-1;
+}
+
+.viewAllContainer {
+  @apply flex justify-center;
+}
+
+.viewAllButton {
+  @apply relative inline-block py-3 px-8 bg-[#0261d1] text-white font-bold rounded-full overflow-hidden transition-all duration-300;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.viewAllButton:hover {
+  @apply bg-[#0052b3] transform -translate-y-1;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.buttonRing {
+  @apply absolute -top-6 -right-6 w-12 h-12 rounded-full border-4 border-[#ffd700] opacity-50 transition-all duration-300;
+}
+
+.viewAllButton:hover .buttonRing {
+  @apply opacity-100;
+}
+
+/*----- Blog Post Page Styles -----*/
+
+.blogPostSection {
+  @apply py-20 px-4;
+}
+
+.blogPostContainer {
+  @apply relative z-20 bg-white/10 p-10 rounded-[20px] border-4 border-[#ffd700] backdrop-blur-md mx-auto;
+  max-width: min(1200px, 90%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.postHeader {
+  @apply text-center mb-8;
+}
+
+.postHeader h1 {
+  @apply text-4xl font-bold mb-4 text-white;
+  text-shadow: 2px 2px 0 #ffd700, 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.postHeader .category {
+  @apply relative inline-block mx-auto mb-4 bg-[#0261d1] text-white text-sm py-1 px-4 rounded-full;
+}
+
+.postHeader .date {
+  @apply block text-gray-300 text-sm;
+}
+
+.featuredImage {
+  @apply mb-8 rounded-xl overflow-hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.featuredImage img {
+  @apply w-full h-auto;
+}
+
+.postContent {
+  @apply text-white mb-12;
+}
+
+.postContent h2 {
+  @apply text-2xl font-bold mb-4 mt-8 text-[#ffd700];
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.postContent h3 {
+  @apply text-xl font-bold mb-3 mt-6 text-[#ffd700];
+}
+
+.postContent p {
+  @apply mb-4 leading-relaxed;
+}
+
+.postContent ul,
+.postContent ol {
+  @apply mb-4 pl-6;
+}
+
+.postContent li {
+  @apply mb-2;
+}
+
+.postFooter {
+  @apply flex justify-center;
+}
+
+.backButton {
+  @apply relative inline-block py-3 px-8 bg-[#0261d1] text-white font-bold rounded-full overflow-hidden transition-all duration-300;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.backButton:hover {
+  @apply bg-[#0052b3] transform -translate-y-1;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.loading,
+.notFound {
+  @apply text-center py-16 text-white;
+}
+
+.notFound h2 {
+  @apply text-2xl font-bold mb-4 text-[#ffd700];
+}
+
+.notFound p {
+  @apply mb-8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blogGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .blogPostContainer {
+    @apply p-6;
+  }
+
+  .postHeader h1 {
+    @apply text-3xl;
+  }
+}
+
+@media (max-width: 480px) {
+  .blogContainer,
+  .blogPostContainer {
+    @apply p-5;
+  }
+
+  .blogGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .postHeader h1 {
+    @apply text-2xl;
+  }
+
+  .postContent h2 {
+    @apply text-xl;
+  }
+
+  .postContent h3 {
+    @apply text-lg;
+  }
+}

@@ -1,0 +1,126 @@
+/*----- Main container for skills section -----*/
+
+.skillsContainer {
+  @apply relative z-20 bg-white/10 p-10 rounded-[20px] border-4 border-[#ffd700] backdrop-blur-md mx-auto;
+  max-width: min(1200px, 90%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skillsContainer h2 {
+  @apply text-center mb-12 relative inline-block font-bold pb-4;
+  font-size: clamp(2rem, 5vw, 3rem);
+  background: linear-gradient(45deg, #ffffff, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  width: 100%;
+}
+
+.skillsContainer h2::after {
+  @apply content-[''] absolute left-1/2 bottom-0 h-1 bg-[#ffd700];
+  width: 100px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.skillsGrid {
+  @apply grid gap-6 justify-center;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.skillItem {
+  @apply flex flex-col items-center p-6 rounded-xl transition-all duration-300 bg-white/5 backdrop-blur-sm border-2 border-transparent;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skillItem:hover {
+  @apply transform -translate-y-2 border-[#ffd700];
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.skillIcon {
+  @apply text-5xl mb-4 text-[#ffd700];
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+.skillName {
+  @apply text-white font-bold text-lg mb-3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.skillTags {
+  @apply flex flex-wrap justify-center gap-2;
+}
+
+.skillTags span {
+  @apply text-xs py-1 px-3 rounded-full bg-[#0261d1] text-white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*----- Responsive adjustments -----*/
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .skillItem {
+    @apply p-4;
+  }
+
+  .skillIcon {
+    @apply text-4xl mb-3;
+  }
+}
+
+/*----- Responsive adjustments -----*/
+@media (max-width: 480px) {
+  .skillsContainer {
+    @apply p-6;
+  }
+
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    @apply gap-4;
+  }
+
+  .skillItem {
+    @apply p-3;
+  }
+
+  .skillIcon {
+    @apply text-3xl mb-2;
+  }
+
+  .skillName {
+    @apply text-base mb-2;
+  }
+}
+
+/*----- Responsive adjustments -----*/
+@media (max-width: 360px) {
+  .skillsContainer {
+    @apply p-4 border-2;
+  }
+
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    @apply gap-3;
+  }
+
+  .skillItem {
+    @apply p-2;
+  }
+
+  .skillIcon {
+    @apply text-2xl mb-1;
+  }
+
+  .skillName {
+    @apply text-sm mb-1;
+  }
+
+  .skillTags span {
+    @apply text-[10px] py-0.5 px-2;
+  }
+}

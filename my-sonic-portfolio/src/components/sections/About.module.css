@@ -1,0 +1,165 @@
+.card {
+  @apply relative z-20 bg-white/10 p-12 rounded-[20px] border-4 border-[#ffd700] backdrop-blur-md;
+  max-width: min(1200px, 90%);
+  margin: clamp(80px, 10vh, 120px) auto 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Sonic ring decoration */
+.card::before {
+  @apply content-[''] absolute -top-[30px] -right-[29px] w-10 h-10 rounded-full z-20 border-4 border-[#ffd700];
+  background: transparent;
+  box-shadow: 0 0 20px #ffd700;
+  animation: ringGlow 2s ease-in-out infinite;
+}
+
+.aboutContent {
+  @apply w-full text-center;
+}
+
+.aboutContent h1 {
+  @apply relative inline-block font-bold pb-4 mb-8;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  background: linear-gradient(45deg, #ffffff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.aboutContent h1::after {
+  @apply content-[''] absolute left-0 bottom-0 w-full h-[3px] bg-[#ffd700];
+  transform-origin: left;
+  transform: scaleX(1);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.profileContainer {
+  @apply flex flex-wrap gap-12 items-start justify-center;
+}
+
+.profileImage {
+  @apply w-full h-full object-cover object-center transition-transform duration-300;
+}
+
+.profileImageWrapper:hover .profileImage {
+  @apply scale-105;
+}
+
+.aboutText {
+  @apply flex-1 min-w-[300px] max-w-full overflow-hidden;
+}
+
+.aboutText p {
+  @apply mb-6 text-white opacity-90 break-words;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Define animations */
+@keyframes ringGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px #ffd700;
+  }
+  50% {
+    box-shadow: 0 0 25px #ffd700;
+  }
+}
+
+/*----- Responsive design -----*/
+@media (max-width: 768px) {
+  .card {
+    @apply p-8;
+    margin: clamp(60px, 8vh, 100px) auto 0;
+  }
+
+  .profileContainer {
+    @apply flex-col items-center gap-8;
+  }
+
+  .profileImageWrapper {
+    flex: 0 0 100%;
+    max-width: min(100%, 300px);
+    margin: 0 auto 2rem;
+    aspect-ratio: 1/1;
+  }
+
+  .aboutContent {
+    @apply text-center;
+  }
+
+  .aboutContent h1 {
+    @apply inline-block text-center mb-6;
+  }
+
+  .aboutContent h1::after {
+    left: 50%;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .aboutText p {
+    @apply text-left mb-4;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    @apply p-6;
+    margin: clamp(40px, 6vh, 80px) auto 0;
+  }
+
+  .profileContainer {
+    @apply gap-6;
+  }
+
+  .profileImageWrapper {
+    max-width: min(80%, 250px);
+    margin-bottom: 1.5rem;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+  }
+
+  .aboutContent h1 {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutText p {
+    font-size: clamp(0.95rem, 4vw, 1.05rem);
+    line-height: 1.7;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Ultra small screens (iPhone SE and similar) */
+@media (max-width: 360px) {
+  .card {
+    @apply p-4 border-2;
+    margin: clamp(30px, 5vh, 60px) auto 0;
+  }
+
+  .profileImageWrapper {
+    max-width: min(90%, 200px);
+    margin-bottom: 1rem;
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .aboutContent h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .aboutText p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.profileImageWrapper {
+  @apply rounded-[15px] overflow-hidden relative z-20 border-2 border-[rgba(0,255,157,0.1)];
+  flex: 0 0 clamp(200px, 35%, 400px);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  aspect-ratio: 3/4;
+}

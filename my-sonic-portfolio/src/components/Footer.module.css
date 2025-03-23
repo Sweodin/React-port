@@ -1,0 +1,83 @@
+/*----- Footer -----*/
+
+.footer {
+  @apply bg-gradient-to-b from-[rgba(34,81,179,0.95)] to-[rgba(10,25,47,0.98)] backdrop-blur-md border-t-4 border-[#ffd700] relative mt-auto select-none;
+  padding: clamp(2rem, 5vw, 3rem) 0;
+}
+
+.footer::before {
+  @apply content-[''] fixed inset-0 opacity-30 z-[1] pointer-events-none;
+  background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      transparent 25%
+    ),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  animation: backgroundScroll 30s linear infinite;
+}
+
+.footerContent {
+  @apply max-w-[1200px] mx-auto flex flex-col gap-6 relative z-[1] text-center;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.footerName {
+  @apply font-bold mb-2;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  background: linear-gradient(45deg, #ffffff, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.footerTitle {
+  @apply text-[#64ffda] font-medium tracking-wider;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.footerLinks {
+  @apply flex justify-center gap-8 mt-4;
+}
+
+.footerLinks a {
+  @apply text-[#ccd6f6] no-underline transition-all duration-300 text-sm;
+}
+
+.footerLinks a:hover {
+  @apply text-[#64ffda] -translate-y-0.5;
+}
+
+.footerCopyright {
+  @apply text-[#8892b0] opacity-80 text-xs;
+}
+
+/*----- Accessibility -----*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    @apply !animate-none !transition-none;
+  }
+}
+
+/*----- Focus styles for keyboard navigation -----*/
+.footer a:focus,
+.footer button:focus,
+.footer input:focus,
+.footer textarea:focus {
+  @apply outline-2 outline-[#ffd700] outline-offset-2;
+}
+
+/* Define animations if not already defined elsewhere */
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  }
+  100% {
+    background-position: 40px 40px, 40px 60px, 60px 20px, 20px 40px;
+  }
+}
