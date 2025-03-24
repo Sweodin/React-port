@@ -14,7 +14,7 @@ const About: React.FC = () => {
       <div className={`${animStyles.ring} ${animStyles.ring5}`}></div>
 
       {/* Chaos Emerald */}
-      <div className={animStyles.emerald}></div>
+      <div className={`${animStyles.emerald} ${styles.Emerald}`}></div>
 
       <div className={styles.card}>
         <div className={styles.aboutContent}>

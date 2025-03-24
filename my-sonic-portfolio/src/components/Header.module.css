@@ -39,27 +39,31 @@
 
 .navItem a {
   @apply text-white no-underline text-base font-medium py-2 px-4 rounded-full transition-all duration-300 ease-in-out relative;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .navItem a:hover {
-  @apply text-accent;
+  @apply text-[#ffd700];
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
 .navItem a::before {
   content: "";
-  @apply absolute bottom-[-2px] left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-accent transition-all duration-300 ease-in-out;
+  @apply absolute bottom-[-2px] left-0 w-0 h-0.5 bg-[#ffd700] transition-all duration-300 ease-in-out;
 }
 
 .navItem a:hover::before {
-  @apply w-4/5;
+  @apply w-full;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
 }
 
 .navItem a.active {
-  @apply bg-accent bg-opacity-20 text-accent;
+  @apply bg-accent bg-opacity-20 text-[#ffd700];
 }
 
 .navItem a.active::before {
-  @apply w-4/5;
+  @apply w-full;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
 }
 
 .menuIcon {

@@ -37,6 +37,15 @@
   font-size: clamp(1rem, 1.5vw, 1.3rem);
 }
 
+/*----- Custom positioning for emerald on left side -----*/
+
+.leftEmerald {
+  left: 5% !important;
+  right: auto !important;
+  top: 40% !important;
+  transform: rotate(-15deg) skewX(5deg) !important;
+}
+
 /* Animations */
 @keyframes borderGlow {
   0%,

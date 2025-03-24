@@ -38,6 +38,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         </Link>
       </div>
 
+      {/* Card glow effect */}
       <div className={styles.cardGlow}></div>
     </div>
   );

@@ -12,6 +12,8 @@ const Welcome: React.FC = () => {
       <div className={`${animStyles.ring} ${animStyles.ring2}`}></div>
       <div className={`${animStyles.ring} ${animStyles.ring3}`}></div>
 
+      {/* Chaos Emerald on Left Side */}
+      <div className={`${animStyles.emerald} ${styles.leftEmerald}`}></div>
       <div className={styles.card}>
         <div className={styles.welcomeContent}>
           <h1>Welcome to My Sonic Inspired Portfolio</h1>
