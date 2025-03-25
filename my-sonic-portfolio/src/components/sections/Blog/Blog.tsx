@@ -37,6 +37,9 @@ const Blog: React.FC = () => {
       <div className={`${animStyles.ring} ${animStyles.ring2}`}></div>
       <div className={`${animStyles.ring} ${animStyles.ring3}`}></div>
 
+      {/* Emerald */}
+      <div className={`${animStyles.emerald} ${styles.leftEmerald}`}></div>
+
       <div className={styles.blogContainer}>
         <h2>My Blog Posts</h2>
         <div className={styles.blogGrid}>

@@ -81,7 +81,7 @@ const Skills: React.FC = () => {
       <div className={`${animStyles.ring} ${animStyles.ring6}`}></div>
 
       {/* Emerald */}
-      <div className={animStyles.emerald}></div>
+      <div className={`${animStyles.emerald} ${styles.leftEmerald}`}></div>
 
       <div className={styles.skillsContainer}>
         <h2>Skills</h2>

@@ -124,3 +124,12 @@
     @apply text-[10px] py-0.5 px-2;
   }
 }
+
+/*----- Custom positioning for emerald on left side -----*/
+
+.leftEmerald {
+  left: 5% !important;
+  right: auto !important;
+  top: 60% !important;
+  transform: rotate(-15deg) skewX(5deg) !important;
+}

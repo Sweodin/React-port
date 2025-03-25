@@ -133,27 +133,37 @@
 }
 
 /* Ultra small screens (iPhone SE and similar) */
-@media (max-width: 360px) {
+@media (max-width: 375px) {
   .card {
-    @apply p-4 border-2;
+    @apply p-4 border-2 w-[95%];
     margin: clamp(30px, 5vh, 60px) auto 0;
+    max-width: 95%;
   }
 
   .profileImageWrapper {
-    max-width: min(90%, 200px);
+    max-width: min(90%, 180px);
     margin-bottom: 1rem;
     box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.4);
   }
 
   .aboutContent h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  .aboutText {
+    min-width: 100%;
+    padding: 0 5px;
   }
 
   .aboutText p {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.4;
     margin-bottom: 0.75rem;
+    word-break: break-word;
+    hyphens: auto;
   }
 }
 
