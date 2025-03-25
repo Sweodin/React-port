@@ -30,7 +30,7 @@
 }
 
 .skillItem {
-  @apply flex flex-col items-center p-6 rounded-xl transition-all duration-300 bg-white/5 border-2 border-transparent;
+  @apply flex flex-col items-center p-6 rounded-xl transition-all duration-300 bg-white/5 /* backdrop-blur-sm  */border-2 border-transparent;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 

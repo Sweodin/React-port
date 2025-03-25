@@ -98,7 +98,7 @@
 
 /* Contact Right Side - Form */
 .contactForm {
-  @apply flex flex-col gap-6 bg-white/5 p-6 rounded-xl /* backdrop-blur-sm */;
+  @apply flex flex-col gap-6 bg-white/5 p-6 rounded-xl backdrop-blur-sm;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
