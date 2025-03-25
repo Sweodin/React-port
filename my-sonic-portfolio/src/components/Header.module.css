@@ -23,7 +23,7 @@
 }
 
 .logo {
-  @apply text-xl font-extrabold text-white no-underline py-2 px-4 rounded-lg bg-black bg-opacity-20 shadow-md transition-all duration-300 ease-in-out tracking-wider border border-accent border-opacity-30;
+  @apply text-xl font-extrabold text-white no-underline py-2 px-4 rounded-lg bg-black bg-opacity-20 shadow-md transition-all duration-300 ease-in-out tracking-wider border border-accent border-opacity-30 relative z-50;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5), 3px 3px 0 #ffd700;
   box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.2),
     0 2px 4px rgba(0, 0, 0, 0.3);
@@ -34,50 +34,59 @@
 }
 
 .navList {
-  @apply flex gap-8 list-none;
+  @apply flex items-center justify-end;
+}
+
+.navList ul {
+  @apply flex gap-6 items-center;
+}
+
+.navItem {
+  @apply relative;
 }
 
 .navItem a {
-  @apply text-white no-underline text-base font-medium py-2 px-4 rounded-full transition-all duration-300 ease-in-out relative;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  @apply text-white font-medium relative py-2 px-3 transition-all duration-300 ease-in-out;
 }
 
-.navItem a:hover {
-  @apply text-[#ffd700];
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+.navItem a::after {
+  @apply content-[''] absolute left-0 -bottom-1 w-full h-[2px] bg-[#ffd700] scale-x-0 transition-transform duration-300 ease-in-out origin-bottom-right;
 }
 
-.navItem a::before {
-  content: "";
-  @apply absolute bottom-[-2px] left-0 w-0 h-0.5 bg-[#ffd700] transition-all duration-300 ease-in-out;
+.navItem a:hover::after,
+.navItem a.active::after {
+  @apply scale-x-100 origin-bottom-left;
 }
 
-.navItem a:hover::before {
-  @apply w-full;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-}
-
+.navItem a:hover,
 .navItem a.active {
-  @apply bg-accent bg-opacity-20 text-[#ffd700];
-}
-
-.navItem a.active::before {
-  @apply w-full;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  @apply text-[#ffd700];
 }
 
 .menuIcon {
-  @apply hidden cursor-pointer p-2 z-[1001] transition-all duration-300 ease-in-out;
+  @apply hidden text-white text-xl cursor-pointer z-50;
+  outline: none;
+  position: relative;
+}
+
+.menuIcon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.menuIcon i {
+  @apply transition-transform duration-300 ease-in-out;
 }
 
 .menuIcon.active i {
   @apply rotate-90;
 }
 
-/* Responsive Styles */
+/*----- Responsive Styles -----*/
+
 @media (max-width: 768px) {
   .nav {
-    @apply px-4;
+    @apply px-4 flex justify-between items-center;
   }
 
   .menuIcon {
@@ -85,45 +94,106 @@
   }
 
   .navList {
-    @apply absolute top-full left-0 w-full p-4 bg-secondary bg-opacity-95 backdrop-blur-[10px] transition-all duration-500 ease-in-out border-b-4 border-accent;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    @apply fixed top-0 right-0 w-[280px] h-full flex flex-col justify-start pt-20 items-center backdrop-blur-md transition-all duration-300 ease-in-out z-40;
+    transform: translateX(100%);
+    opacity: 1;
+    visibility: hidden;
   }
 
   .navList.active {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
   }
 
   .navList ul {
-    @apply flex-col gap-4 items-center;
+    @apply flex-col gap-6 items-center w-full px-4;
+  }
+
+  .navItem {
+    @apply w-full text-center;
   }
 
   .navItem a {
-    @apply block w-full text-center py-3 px-6 bg-white bg-opacity-10 rounded-lg transition-all duration-300 ease-in-out;
+    @apply block w-full text-center py-3 px-4 rounded-lg transition-all duration-300 ease-in-out text-base font-medium;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+  }
+
+  .navItem a::after {
+    display: none;
   }
 
   .navItem a:hover {
-    @apply bg-accent bg-opacity-20 -translate-y-0.5;
+    @apply -translate-y-0.5 text-[#ffd700];
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.5);
   }
 }
 
 @media (max-width: 480px) {
+  .header {
+    @apply py-6;
+  }
+
   .logo {
-    @apply text-base;
+    @apply text-base py-1 px-3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .nav {
     @apply px-3;
   }
+
+  .navItem a {
+    @apply py-2 px-4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-/* Extra small devices */
-@media (max-width: 322px) {
+/* Small phones */
+@media (max-width: 375px) {
+  .header {
+    @apply py-4;
+  }
+
   .logo {
+    @apply text-sm py-1 px-2;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5), 2px 2px 0 #ffd700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .menuIcon {
     @apply text-sm;
   }
 
+  .navList ul {
+    @apply gap-4;
+  }
+
+  .navItem {
+    @apply w-full;
+  }
+
   .navItem a {
-    @apply text-sm py-2 px-4;
+    @apply text-xs py-2 px-3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@media (max-width: 322px) {
+  .logo {
+    @apply text-xs;
+  }
+
+  .navItem a {
+    @apply text-xs py-2 px-2;
   }
 }
 

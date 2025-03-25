@@ -57,6 +57,67 @@
   @apply text-[#8892b0] opacity-80 text-xs;
 }
 
+/*----- Responsive Styles -----*/
+@media (max-width: 768px) {
+  .footer {
+    padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+  }
+
+  .footerLinks {
+    @apply gap-6;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: clamp(1.2rem, 3vw, 2rem) 0;
+  }
+
+  .footerContent {
+    @apply gap-4;
+  }
+
+  .footerLinks {
+    @apply gap-4 flex-wrap;
+  }
+
+  .footerLinks a {
+    @apply text-xs;
+  }
+}
+
+/* Small phones */
+@media (max-width: 375px) {
+  .footer {
+    padding: 1rem 0;
+  }
+
+  .footerContent {
+    @apply gap-3;
+  }
+
+  .footerName {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footerTitle {
+    font-size: 0.8rem;
+  }
+
+  .footerLinks {
+    @apply gap-3 mt-2;
+  }
+
+  .footerLinks a {
+    @apply text-xs px-2 py-1;
+  }
+
+  .footerCopyright {
+    @apply text-[0.65rem] mt-2;
+  }
+}
+
 /*----- Accessibility -----*/
 @media (prefers-reduced-motion: reduce) {
   * {
