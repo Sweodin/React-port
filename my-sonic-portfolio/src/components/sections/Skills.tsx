@@ -1,6 +1,6 @@
 // Skills.tsx
 import React from "react";
-import styles from "./skills.module.css";
+import styles from "./Skills.module.css";
 import sharedStyles from "../shared-styling/SharedStyles.module.css";
 import animStyles from "../shared-styling/SonicAnimations.module.css";
 import {
