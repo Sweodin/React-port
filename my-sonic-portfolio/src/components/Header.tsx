@@ -11,14 +11,33 @@ const Header: React.FC = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
+  // Function to handle smooth scrolling to sections
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      // Update URL without page reload
+      window.history.pushState(null, "", `#${id}`);
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className={`fixed top-0 left-0 w-full z-50 ${styles.header}`}>
       <nav className={styles.nav}>
-        <a href="/" className={styles.logo}>
+        <a
+          href="#"
+          className={styles.logo}
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           Peters Portfolio
         </a>
         <div
@@ -36,11 +55,14 @@ const Header: React.FC = () => {
                 <a
                   href={`#${item.toLowerCase()}`}
                   className={
-                    location.pathname === `#${item.toLowerCase()}`
+                    location.hash === `#${item.toLowerCase()}`
                       ? styles.active
                       : ""
                   }
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.toLowerCase());
+                  }}
                 >
                   {item}
                 </a>
