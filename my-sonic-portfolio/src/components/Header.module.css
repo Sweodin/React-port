@@ -45,6 +45,22 @@
   @apply relative;
 }
 
+.navButton {
+  @apply text-white font-medium relative py-2 px-3 transition-all duration-300 ease-in-out bg-transparent border-none cursor-pointer;
+}
+
+.navButton:hover {
+  @apply text-[#ffd700];
+}
+
+.navButton::after {
+  @apply content-[''] absolute left-0 -bottom-1 w-full h-[2px] bg-[#ffd700] scale-x-0 transition-transform duration-300 ease-in-out origin-bottom-right;
+}
+
+.navButton:hover::after {
+  @apply scale-x-100 origin-bottom-left;
+}
+
 .navItem a {
   @apply text-white font-medium relative py-2 px-3 transition-all duration-300 ease-in-out;
 }
@@ -114,6 +130,24 @@
     @apply w-full text-center;
   }
 
+  .navButton {
+    @apply block w-full text-center py-3 px-4 rounded-lg transition-all duration-300 ease-in-out text-base font-medium;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 215, 0, 0.7);
+  }
+
+  .navButton:hover {
+    @apply -translate-y-0.5 text-[#ffd700];
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 215, 0, 0.7);
+  }
+
+  .navButton::after {
+    display: none;
+  }
+
   .navItem a {
     @apply block w-full text-center py-3 px-4 rounded-lg transition-all duration-300 ease-in-out text-base font-medium;
     -webkit-font-smoothing: antialiased;
@@ -122,14 +156,14 @@
     border: 1px solid rgba(255, 215, 0, 0.7);
   }
 
-  .navItem a::after {
-    display: none;
-  }
-
   .navItem a:hover {
     @apply -translate-y-0.5 text-[#ffd700];
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(255, 215, 0, 0.7);
+  }
+
+  .navItem a::after {
+    display: none;
   }
 }
 
@@ -146,6 +180,12 @@
 
   .nav {
     @apply px-3;
+  }
+
+  .navButton {
+    @apply py-2 px-4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .navItem a {
@@ -180,6 +220,12 @@
     @apply w-full;
   }
 
+  .navButton {
+    @apply text-xs py-2 px-3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   .navItem a {
     @apply text-xs py-2 px-3;
     -webkit-font-smoothing: antialiased;
@@ -190,6 +236,10 @@
 @media (max-width: 322px) {
   .logo {
     @apply text-xs;
+  }
+
+  .navButton {
+    @apply text-xs py-2 px-2;
   }
 
   .navItem a {
