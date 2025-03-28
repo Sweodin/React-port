@@ -93,9 +93,12 @@ const Projects: React.FC = () => {
         </div>
 
         {visibleProjects.length < filteredProjects.length && (
-          <button className={styles.loadMoreBtn} onClick={handleLoadMore}>
-            Load More Projects
-          </button>
+          <div className={styles.viewAllContainer}>
+            <button className={styles.viewAllButton} onClick={handleLoadMore}>
+              Load More Projects
+              <span className={styles.buttonRing}></span>
+            </button>
+          </div>
         )}
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Blog.module.css";
 import sharedStyles from "../../shared-styling/SharedStyles.module.css";
 import animStyles from "../../shared-styling/SonicAnimations.module.css";
@@ -7,6 +7,15 @@ import { useBlogPosts } from "../../../hooks/useBlog";
 
 const Blog: React.FC = () => {
   const { posts, loading, error } = useBlogPosts();
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  // Get visible blog posts based on count
+  const visiblePosts = posts.slice(0, visibleCount);
+
+  // Handle load more
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
 
   if (loading) {
     return (
@@ -43,10 +52,19 @@ const Blog: React.FC = () => {
       <div className={styles.blogContainer}>
         <h2>My Blog Posts</h2>
         <div className={styles.blogGrid}>
-          {posts.map((post) => (
+          {visiblePosts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
         </div>
+
+        {visiblePosts.length < posts.length && (
+          <div className={styles.viewAllContainer}>
+            <button className={styles.viewAllButton} onClick={handleLoadMore}>
+              Load More Posts
+              <span className={styles.buttonRing}></span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
