@@ -1,7 +1,7 @@
 // Import images directly - only use the ones that actually exist
-import minportImage from "../assets/images/projects/Minport.png";
-import animeProjectImage from "../assets/images/projects/Animeproject.jpg";
-import virtualPetGameImage from "../assets/images/projects/Virtual-pet-game.png";
+import minportImage from "../assets/images/Projects/Minport.png";
+import animeProjectImage from "../assets/images/Projects/Animeproject.jpg";
+import virtualPetGameImage from "../assets/images/Projects/Virtual-pet-game.png";
 
 export interface Project {
   id: string;
