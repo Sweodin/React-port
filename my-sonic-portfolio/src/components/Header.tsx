@@ -21,8 +21,8 @@ const Header: React.FC = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      // Update URL without page reload
-      window.history.pushState(null, "", `#${id}`);
+      // Update URL with hash without page reload - compatible with HashRouter
+      window.location.hash = id;
     }
     setIsMenuOpen(false);
   };
@@ -36,6 +36,7 @@ const Header: React.FC = () => {
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
+            window.location.hash = "";
           }}
         >
           Peters Portfolio
@@ -55,7 +56,8 @@ const Header: React.FC = () => {
                 <a
                   href={`#${item.toLowerCase()}`}
                   className={
-                    location.hash === `#${item.toLowerCase()}`
+                    location.hash === `#${item.toLowerCase()}` ||
+                    (location.hash === "" && item.toLowerCase() === "about")
                       ? styles.active
                       : ""
                   }
