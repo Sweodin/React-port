@@ -27,6 +27,28 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  // Check if a section is in the viewport to highlight the nav item
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map(item => document.getElementById(item.toLowerCase()));
+      const scrollPosition = window.scrollY + 100; // Add offset for header
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            window.history.replaceState(null, '', `#${navItems[index].toLowerCase()}`);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [navItems]);
+
   return (
     <header className={`fixed top-0 left-0 w-full z-50 ${styles.header}`}>
       <nav className={styles.nav}>
