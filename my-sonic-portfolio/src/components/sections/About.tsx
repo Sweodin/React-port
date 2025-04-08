@@ -1,9 +1,9 @@
-// About.tsx
 import React from "react";
 import styles from "./About.module.css";
 import sharedStyles from "../shared-styling/SharedStyles.module.css";
 import animStyles from "../shared-styling/SonicAnimations.module.css";
 import profileImage from "../../assets/images/Peter.jpg";
+import Emerald from "../Emerald";
 
 const About: React.FC = () => {
   return (
@@ -15,6 +15,9 @@ const About: React.FC = () => {
 
       {/* Chaos Emerald */}
       <div className={`${animStyles.emerald} ${styles.Emerald}`}></div>
+
+      {/* Red Chaos Emerald Easter Egg */}
+      <Emerald id="red" className="absolute bottom-5 left-20 z-10" />
 
       <div className={styles.card}>
         <div className={styles.aboutContent}>

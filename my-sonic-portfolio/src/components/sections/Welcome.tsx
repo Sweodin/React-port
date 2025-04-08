@@ -1,12 +1,12 @@
-// Welcome.tsx
 import React from "react";
 import styles from "./Welcome.module.css";
 import sharedStyles from "../shared-styling/SharedStyles.module.css";
 import animStyles from "../shared-styling/SonicAnimations.module.css";
+import Emerald from "../Emerald";
 
 const Welcome: React.FC = () => {
   return (
-    <section id="welcome" className={sharedStyles.sectionBackground}>
+    <section id="welcome" className={`${sharedStyles.sectionBackground} relative min-h-screen`}>
       {/* Sonic Rings Decoration */}
       <div className={`${animStyles.ring} ${animStyles.ring1}`}></div>
       <div className={`${animStyles.ring} ${animStyles.ring2}`}></div>
@@ -14,6 +14,12 @@ const Welcome: React.FC = () => {
 
       {/* Chaos Emerald on Left Side */}
       <div className={`${animStyles.emerald} ${styles.leftEmerald}`}></div>
+
+      {/* Green Chaos Emerald Easter Egg*/}
+      <div className="absolute top-1/4 right-[10%] z-50">
+        <Emerald id="green" className="transform hover:scale-110 transition-transform duration-300" />
+      </div>
+
       <div className={styles.card}>
         <div className={styles.welcomeContent}>
           <h1>Welcome to My Sonic Inspired Portfolio</h1>

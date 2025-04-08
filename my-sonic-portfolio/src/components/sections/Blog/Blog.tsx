@@ -4,6 +4,7 @@ import sharedStyles from "../../shared-styling/SharedStyles.module.css";
 import animStyles from "../../shared-styling/SonicAnimations.module.css";
 import BlogCard from "./BlogCard";
 import { useBlogPosts } from "../../../hooks/useBlog";
+import Emerald from "../../Emerald";
 
 const Blog: React.FC = () => {
   const { posts, loading, error } = useBlogPosts();
@@ -48,6 +49,9 @@ const Blog: React.FC = () => {
 
       {/* Emerald */}
       <div className={`${animStyles.emerald} ${styles.leftEmerald}`}></div>
+      
+      {/* Purple Chaos Emerald Easter Egg */}
+      <Emerald id="purple" className="absolute top-24 right-12 z-10" />
 
       <div className={styles.blogContainer}>
         <h2>My Blog Posts</h2>
