@@ -1,0 +1,129 @@
+:root {
+  --flash-opacity: 0;
+}
+
+/* Flash effect */
+.superSonicMode::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  background: rgba(255, 215, 0, var(--flash-opacity));
+  transition: background 0.5s ease-out;
+}
+
+/*----- Super Sonic Mode Styles -----*/
+
+.superSonicMode {
+  position: relative;
+}
+
+.superSonicMode::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.4),
+    rgba(255, 140, 0, 0.3)
+  );
+  animation: superSonicGlow 2s ease-in-out infinite;
+}
+
+.superSonicMode::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 215, 0, 0.2) 0%,
+    rgba(255, 215, 0, 0.15) 50%,
+    transparent 100%
+  );
+  animation: superSonicPulse 4s ease-in-out infinite;
+}
+
+/* Super Sonic Aura Effect */
+.auraEffect {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 215, 0, 0.15) 0%,
+    rgba(255, 140, 0, 0.15) 10%,
+    rgba(255, 215, 0, 0.15) 20%
+  );
+  opacity: 0.5;
+  animation: scrollAura 20s linear infinite;
+}
+
+/*----- Animations -----*/
+@keyframes superSonicGlow {
+  0%,
+  100% {
+    opacity: 0.4;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 215, 0, 0.4),
+      rgba(255, 140, 0, 0.3)
+    );
+  }
+  50% {
+    opacity: 0.6;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 215, 0, 0.5),
+      rgba(255, 140, 0, 0.4)
+    );
+  }
+}
+
+@keyframes superSonicPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+}
+
+@keyframes scrollAura {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Super Sonic Text Effect */
+.superSonicText {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 215, 0, 1);
+  }
+}

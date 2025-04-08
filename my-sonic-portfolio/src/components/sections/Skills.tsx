@@ -3,6 +3,8 @@ import React from "react";
 import styles from "./Skills.module.css";
 import sharedStyles from "../shared-styling/SharedStyles.module.css";
 import animStyles from "../shared-styling/SonicAnimations.module.css";
+import Emerald from "../Emerald";
+
 import {
   FaHtml5,
   FaCss3Alt,
@@ -71,7 +73,7 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className={sharedStyles.sectionBackground}>
+    <section id="skills" className={`${sharedStyles.sectionBackground} relative`}>
       {/* Sonic Rings */}
       <div className={`${animStyles.ring} ${animStyles.ring1}`}></div>
       <div className={`${animStyles.ring} ${animStyles.ring2}`}></div>
@@ -82,6 +84,11 @@ const Skills: React.FC = () => {
 
       {/* Emerald */}
       <div className={`${animStyles.emerald} ${styles.leftEmerald}`}></div>
+      
+      {/* Blue Chaos Emerald Easter Egg */}
+      <div className="absolute top-1/4 left-[10%] z-50">
+        <Emerald id="blue" className="transform hover:scale-110 transition-transform duration-300" />
+      </div>
 
       <div className={styles.skillsContainer}>
         <h2>Skills</h2>

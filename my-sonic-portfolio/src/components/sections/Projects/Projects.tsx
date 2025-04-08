@@ -5,6 +5,7 @@ import sharedStyles from "../../shared-styling/SharedStyles.module.css";
 import animStyles from "../../shared-styling/SonicAnimations.module.css";
 import ProjectCard from "./ProjectCard";
 import { projects } from "../../../data/projectsData";
+import Emerald from "../../Emerald";
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState("all");
@@ -45,6 +46,9 @@ const Projects: React.FC = () => {
 
       {/* Emerald */}
       <div className={`${animStyles.emerald} ${styles.rightEmerald}`}></div>
+      
+      {/* Yellow Chaos Emerald Easter Egg */}
+      <Emerald id="yellow" className="absolute bottom-16 right-8 z-10" />
 
       <div className={styles.sectionContent}>
         <h2>Featured Projects</h2>

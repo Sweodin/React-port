@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import { useLocation } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaUndo } from "react-icons/fa";
+import { useEmeralds } from "../contexts/EmeraldContext";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = ["About", "Skills", "Projects", "Blog", "Contact"];
   const location = useLocation();
+  const { resetEmeralds, isSuperSonic } = useEmeralds();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -38,13 +40,24 @@ const Header: React.FC = () => {
         >
           Peters Portfolio
         </a>
-        <div
-          className={`${styles.menuIcon} ${isMenuOpen ? styles.active : ""}`}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          tabIndex={-1}
-        >
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        <div className={styles.headerControls}>
+          {isSuperSonic && (
+            <button
+              onClick={resetEmeralds}
+              className={styles.resetButton}
+              title="Reset Chaos Emeralds"
+            >
+              <FaUndo />
+            </button>
+          )}
+          <div
+            className={`${styles.menuIcon} ${isMenuOpen ? styles.active : ""}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            tabIndex={-1}
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <div className={`${styles.navList} ${isMenuOpen ? styles.active : ""}`}>
           <ul>

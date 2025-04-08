@@ -12,6 +12,7 @@ import {
   FaInstagram,
   FaCloud,
 } from "react-icons/fa";
+import Emerald from "../Emerald";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -88,6 +89,9 @@ const Contact: React.FC = () => {
 
       {/* Chaos Emerald */}
       <div className={`${animStyles.emerald} ${styles.rightEmerald}`}></div>
+      
+      {/* Cyan Chaos Emerald Easter Egg */}
+      <Emerald id="cyan" className="absolute bottom-8 left-10 z-10" />
 
       <div className={styles.contactContainer}>
         <h2>Contact Me</h2>

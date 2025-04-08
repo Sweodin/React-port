@@ -1,5 +1,5 @@
 .card {
-  @apply flex flex-col gap-6 relative z-10 select-none bg-white/90 rounded-[20px] border-4 border-[#ffd700];
+  @apply flex flex-col gap-6 relative z-20 select-none bg-white/90 rounded-[20px] border-4 border-[#ffd700];
   max-width: min(1200px, 90%);
   min-height: clamp(40vh, 50vh, 60vh);
   margin: clamp(80px, 10vh, 120px) auto 0;
@@ -44,6 +44,7 @@
   right: auto !important;
   top: 40% !important;
   transform: rotate(-15deg) skewX(5deg) !important;
+  z-index: 30;
 }
 
 /* Animations */
