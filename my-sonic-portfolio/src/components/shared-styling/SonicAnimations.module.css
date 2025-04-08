@@ -49,6 +49,7 @@
   animation: floatEmerald 8s ease-in-out infinite,
     glowEmerald 3s ease-in-out infinite;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  pointer-events: none; /* Ensure emerald doesn't interfere with clicks */
 }
 
 /* Sonic Ring Decoration for Cards */
@@ -116,8 +117,22 @@
 @media (max-width: 768px) {
   .emerald {
     @apply w-20 h-28;
-    top: 10%;
-    right: 5%;
+    top: 12%;
+    right: 8%;
+  }
+
+  /* Adjust ring positions */
+  .ring1 {
+    @apply top-[15%] left-[8%] w-14 h-14;
+  }
+  .ring2 {
+    @apply top-[35%] right-[10%] w-16 h-16;
+  }
+  .ring3 {
+    @apply bottom-[20%] left-[15%] w-12 h-12;
+  }
+  .ring4 {
+    @apply top-[55%] right-[12%] w-10 h-10;
   }
 
   /* Hide some rings on mobile for better performance */
@@ -130,9 +145,50 @@
 @media (max-width: 480px) {
   .emerald {
     @apply w-16 h-24;
+    top: 10%;
+    right: 6%;
+  }
+
+  /* Further adjust ring positions */
+  .ring1 {
+    @apply top-[18%] left-[10%] w-12 h-12;
+  }
+  .ring2 {
+    @apply top-[40%] right-[12%] w-14 h-14;
+  }
+  .ring3 {
+    @apply bottom-[25%] left-[18%] w-10 h-10;
   }
 
   .ring4 {
     display: none;
+  }
+}
+
+/* Ultra small screens (iPhone SE and similar) */
+@media (max-width: 375px) {
+  .emerald {
+    @apply w-14 h-20;
+    top: 8%;
+    right: 5%;
+  }
+
+  /* Minimal ring decoration for very small screens */
+  .ring1 {
+    @apply top-[20%] left-[12%] w-10 h-10;
+  }
+  .ring2 {
+    @apply top-[45%] right-[15%] w-12 h-12;
+  }
+  .ring3 {
+    @apply bottom-[30%] left-[20%] w-8 h-8;
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .emerald,
+  .ring {
+    @apply !animate-none !transition-none;
   }
 }

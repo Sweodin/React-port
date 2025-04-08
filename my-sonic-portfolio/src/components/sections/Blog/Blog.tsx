@@ -49,9 +49,9 @@ const Blog: React.FC = () => {
 
       {/* Emerald */}
       <div className={`${animStyles.emerald} ${styles.leftEmerald}`}></div>
-      
+
       {/* Purple Chaos Emerald Easter Egg */}
-      <Emerald id="purple" className="absolute top-24 right-12 z-10" />
+      <Emerald id="purple" className="absolute top-24 right-0-24 z-10" />
 
       <div className={styles.blogContainer}>
         <h2>My Blog Posts</h2>

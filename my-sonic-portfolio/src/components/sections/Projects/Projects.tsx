@@ -46,9 +46,9 @@ const Projects: React.FC = () => {
 
       {/* Emerald */}
       <div className={`${animStyles.emerald} ${styles.rightEmerald}`}></div>
-      
+
       {/* Yellow Chaos Emerald Easter Egg */}
-      <Emerald id="yellow" className="absolute bottom-16 right-8 z-10" />
+      <Emerald id="yellow" className="absolute bottom-16 right-0-24" />
 
       <div className={styles.sectionContent}>
         <h2>Featured Projects</h2>

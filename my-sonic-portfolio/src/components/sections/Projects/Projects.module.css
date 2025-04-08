@@ -48,7 +48,7 @@
 
 /* Project card */
 .projectCard {
-  @apply relative bg-white/5 rounded-xl overflow-hidden  transition-all duration-500 h-full flex flex-col;
+  @apply relative bg-white/5 rounded-xl overflow-hidden transition-all duration-500 h-full flex flex-col z-30;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -197,6 +197,35 @@
 
   .filterBtn {
     @apply py-1 px-3 text-sm;
+  }
+
+  /* Adjust emerald positions */
+  .rightEmerald {
+    right: 10% !important;
+    top: 12% !important;
+    z-index: 40 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .rightEmerald {
+    right: 10% !important;
+    top: 10% !important;
+    z-index: 40 !important;
+  }
+}
+
+/* Ultra small screens (iPhone SE and similar) */
+@media (max-width: 375px) {
+  .sectionContent {
+    @apply p-4 border-2;
+    max-width: 95%;
+  }
+
+  .rightEmerald {
+    right: 10% !important;
+    top: 12% !important;
+    z-index: 40 !important;
   }
 }
 
