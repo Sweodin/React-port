@@ -2,6 +2,7 @@
 import minportImage from "../assets/images/Projects/Minport.png";
 import animeProjectImage from "../assets/images/Projects/Animeproject.jpg";
 import virtualPetGameImage from "../assets/images/Projects/Virtual-pet-game.png";
+import trafficjamImage from "../assets/images/Projects/Traficjam.png";
 
 export interface Project {
   id: string;
@@ -52,5 +53,17 @@ export const projects: Project[] = [
     demoLink: "https://sweodin.github.io/Virtual-Pet-Game/",
     codeLink: "https://github.com/Sweodin/Virtual-Pet-Game",
     featured: true,
-  }
+  },
+  {
+    id: "Trafic jam App",
+    title: "Explore our trafic jam app.",
+    description:
+      "I'm proud to announce the completion of our group project - a traffic jam application with additional features that's now live! We built it using",
+    image: trafficjamImage,
+    technologies: ["TypeScript", "React", "Zustand", "Tailwind CSS", "Vite"],
+    category: "fullstack",
+    demoLink: "https://roztownsend.net/projects/traffic-jam/",
+    codeLink: "https://github.com/Tunje/traficapp",
+    featured: true,
+  },
 ];
